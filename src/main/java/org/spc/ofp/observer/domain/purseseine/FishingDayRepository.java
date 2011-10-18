@@ -23,6 +23,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.spc.ofp.data.Repository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 
 /**
@@ -32,7 +33,10 @@ import org.springframework.jdbc.core.RowMapper;
 @org.springframework.stereotype.Repository("observer.FishingDayRepository")
 public class FishingDayRepository extends Repository<FishingDay> implements IFishingDayRepository {
 
-    private static final String SELECT_QUERY =
+    @Autowired
+    protected DayLogRepository daylogRepo;
+	
+	private static final String SELECT_QUERY =
         "SELECT " +
 		"    OBSTRIP_ID, " + 
 		"    S_DAY_ID, " + 
@@ -47,17 +51,29 @@ public class FishingDayRepository extends Repository<FishingDay> implements IFis
 		"    FADNOFSH " + 
 		"FROM " +
 		"    S_DAY ";
+    
+    private FishingDay fill(final FishingDay fd) {
+    	fd.addActivities(daylogRepo.findByDayId(fd.getId()));
+    	return fd;
+    }
+    
+    private List<FishingDay> fillAll(final List<FishingDay> fdl) {
+    	for (FishingDay fd : fdl) {
+    		fd = fill(fd);
+    	}
+    	return fdl;
+    }
         
     @Override
     public FishingDay findById(final long id) {
         final String query = SELECT_QUERY + " WHERE S_DAY_ID = ? ";
-        return find(query, new FishingDayMapper(), id);
+        return fill(find(query, new FishingDayMapper(), id));
     }
     
     @Override
 	public List<FishingDay> findByTripId(final long tripId) {
     	final String query = SELECT_QUERY + " WHERE OBSTRIP_ID = ? ";
-        return list(query, new FishingDayMapper(), tripId);
+        return fillAll(list(query, new FishingDayMapper(), tripId));
 	}
     
     private static final class FishingDayMapper implements RowMapper<FishingDay> {

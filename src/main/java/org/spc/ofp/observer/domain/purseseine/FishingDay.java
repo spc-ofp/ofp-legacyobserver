@@ -18,7 +18,10 @@
  */
 package org.spc.ofp.observer.domain.purseseine;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
  
 /**
  * @author Corey Cole <coreyc@spc.int>
@@ -37,6 +40,8 @@ public class FishingDay {
 	private Integer sch_fsh;
 	private Integer fad_fsh;
 	private Integer fadnofsh;
+	
+	private List<DayLog> activities = new ArrayList<DayLog>();
 	
 	public long getId() {
 		return id;
@@ -103,5 +108,14 @@ public class FishingDay {
 	}
 	public void setFadnofsh(Integer fadnofsh) {
 		this.fadnofsh = fadnofsh;
+	}
+	public boolean addActivity(final DayLog dl) {
+		return activities.add(dl);
+	}
+	public boolean addActivities(final Collection<DayLog> dll) {
+		return activities.addAll(dll);
+	}
+	public List<DayLog> getActivities() {
+		return activities;
 	}
 }
