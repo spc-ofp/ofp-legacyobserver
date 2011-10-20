@@ -39,6 +39,9 @@ public class DayLogRepository extends Repository<DayLog> implements IDayLogRepos
     @Autowired
     protected LengthFrequencyHeaderRepository headerRepo;
     
+    @Autowired
+    protected SetCatchRepository setCatchRepo;
+    
 	private static final String SELECT_QUERY =
         "SELECT " +
 		"    OBSTRIP_ID, " + 
@@ -111,6 +114,7 @@ public class DayLogRepository extends Repository<DayLog> implements IDayLogRepos
     	if (0L == dayLogId) { return dl; }
     	dl.addBrailPatterns(brailRepo.findByDaylogId(dayLogId));
     	dl.addHeaders(headerRepo.findByDayLogId(dayLogId));
+    	dl.addSetCatch(setCatchRepo.findByDayLogId(dayLogId));
     	return dl;
     }
     

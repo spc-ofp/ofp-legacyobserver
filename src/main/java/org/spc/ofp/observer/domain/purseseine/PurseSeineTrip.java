@@ -31,14 +31,9 @@ import org.spc.ofp.observer.domain.Trip;
 public class PurseSeineTrip extends Trip {
 
 	// Purse Seine data collections
-	// NOTE Some of these items are subordinate to other items.  However,
-	// if the base table exposes the trip ID, we'll use it to recover the data
-	// here unless and until it becomes a problem.
-	private List<DayLog> daylogs = new ArrayList<DayLog>();
 	private List<Crew> crewList = new ArrayList<Crew>();
 	private List<FishingDay> fishingDays = new ArrayList<FishingDay>();
 	private List<Gear> gearList = new ArrayList<Gear>();
-	private List<SetCatch> setCatchList = new ArrayList<SetCatch>();
 	private List<VesselAttribute> vesselAttributes = new ArrayList<VesselAttribute>();
 	private List<WellContent> wellContents = new ArrayList<WellContent>();
 	private List<WellRecon> wellReconList = new ArrayList<WellRecon>();
@@ -75,14 +70,6 @@ public class PurseSeineTrip extends Trip {
 		this.specialSpecies = t.getSpecialSpecies();
 	}
 	
-	public boolean addDayLog(final DayLog dayLog) {
-		return daylogs.add(dayLog);
-	}
-	
-	public boolean addDayLogs(final Collection<DayLog> dll) {
-		return daylogs.addAll(dll);
-	}
-	
 	public boolean addCrew(final Crew crew) {
 		return crewList.add(crew);
 	}
@@ -105,14 +92,6 @@ public class PurseSeineTrip extends Trip {
 	
 	public boolean addGear(final Collection<Gear> gl) {
 		return gearList.addAll(gl);
-	}
-	
-	public boolean addSetCatch(final SetCatch sc) {
-		return setCatchList.add(sc);
-	}
-	
-	public boolean addSetCatch(final Collection<SetCatch> scl) {
-		return setCatchList.addAll(scl);
 	}
 	
 	public boolean addVesselAttribute(final VesselAttribute va) {
@@ -139,10 +118,6 @@ public class PurseSeineTrip extends Trip {
 		return wellReconList.addAll(wrl);
 	}
 
-	public List<DayLog> getDaylogs() {
-		return daylogs;
-	}
-
 	public List<Crew> getCrewList() {
 		return crewList;
 	}
@@ -153,10 +128,6 @@ public class PurseSeineTrip extends Trip {
 
 	public List<Gear> getGearList() {
 		return gearList;
-	}
-
-	public List<SetCatch> getSetCatchList() {
-		return setCatchList;
 	}
 
 	public List<VesselAttribute> getVesselAttributes() {

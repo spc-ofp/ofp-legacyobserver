@@ -93,6 +93,7 @@ public class DayLog {
 	
 	private List<BrailPattern> brailPatterns = new ArrayList<BrailPattern>();
 	private List<LengthFrequencyHeader> headers = new ArrayList<LengthFrequencyHeader>();
+	private List<SetCatch> setCatchList = new ArrayList<SetCatch>();
 	
 	public long getDayId() {
 		return dayId;
@@ -477,5 +478,11 @@ public class DayLog {
 	}
 	public boolean addHeaders(final Collection<LengthFrequencyHeader> lfhl) {
 		return headers.addAll(lfhl);
+	}
+	public boolean addSetCatch(final SetCatch sc) {
+		return setCatchList.add(sc);
+	}	
+	public boolean addSetCatch(final Collection<SetCatch> scl) {
+		return setCatchList.addAll(scl);
 	}
 }

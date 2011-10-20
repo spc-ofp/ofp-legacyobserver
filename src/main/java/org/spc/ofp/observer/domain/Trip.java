@@ -26,7 +26,7 @@ import java.util.Date;
  * @author Corey Cole <coreyc@spc.int>
  *
  */
-public class Trip {
+public class Trip implements ITrip {
 
 	protected long id;
 	protected String programId;

@@ -58,17 +58,6 @@ public class PurseSeineTripRepository extends Repository<PurseSeineTrip>
 	@Autowired
 	protected WellReconRepository wellReconRepo;
 	
-	/*
-	 *private List<DayLog> daylogs = new ArrayList<DayLog>();
-	private List<Crew> crewList = new ArrayList<Crew>();
-	private List<FishingDay> fishingDays = new ArrayList<FishingDay>();
-	private List<Gear> gearList = new ArrayList<Gear>();
-	private List<SetCatch> setCatchList = new ArrayList<SetCatch>();
-	private List<VesselAttribute> vesselAttributes = new ArrayList<VesselAttribute>();
-	private List<WellContent> wellContents = new ArrayList<WellContent>();
-	private List<WellRecon> wellReconList = new ArrayList<WellRecon>();
-	 */
-	
 	/* (non-Javadoc)
 	 * @see org.spc.ofp.observer.domain.purseseine.IPurseSeineTripRepository#findById(long)
 	 */
@@ -77,15 +66,12 @@ public class PurseSeineTripRepository extends Repository<PurseSeineTrip>
 		final Trip t = tripRepo.tripById(tripId);
 		if (null == t) { return null; }
 		final PurseSeineTrip pst = new PurseSeineTrip(t);
-		pst.addDayLogs(dayLogRepo.findByTripId(tripId));
 		pst.addCrew(crewRepo.findByTripId(tripId));
 		pst.addFishingDays(fishingDayRepo.findByTripId(tripId));
 		pst.addGear(gearRepo.findByTripId(tripId));
-		pst.addSetCatch(setCatchRepo.findByTripId(tripId));
 		pst.addVesselAttributes(vesselAttributeRepo.findByTripId(tripId));
 		pst.addWellContents(wellContentRepo.findByTripId(tripId));
 		pst.addWellRecon(wellReconRepo.findByTripId(tripId));
 		return pst;
 	}
-
 }
