@@ -467,6 +467,9 @@ public class DayLog {
 	public List<LengthFrequencyHeader> getHeaders() {
 		return headers;
 	}
+	public List<SetCatch> getSetCatchList() {
+		return setCatchList;
+	}
 	public boolean addBrailPattern(final BrailPattern bp) {
 		return brailPatterns.add(bp);
 	}

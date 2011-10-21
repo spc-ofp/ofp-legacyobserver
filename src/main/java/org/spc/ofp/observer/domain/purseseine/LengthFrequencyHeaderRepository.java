@@ -62,7 +62,7 @@ public class LengthFrequencyHeaderRepository extends Repository<LengthFrequencyH
 		"    NBFORMUSED, " + 
 		"    TOTUSED, " + 
 		"    ENTEREDBY, " + 
-		"    INSERTTIME " + 
+		"    datetime(INSERTTIME) as INSERTTIME " + 
 		"FROM " +
 		"    S_LF_H ";
         
@@ -121,7 +121,7 @@ public class LengthFrequencyHeaderRepository extends Repository<LengthFrequencyH
 			obj.setNbformused(readInteger(rs, "NBFORMUSED")); //readInteger(rs, "NBFORMUSED");
 			obj.setTotused(readInteger(rs, "TOTUSED")); //readInteger(rs, "TOTUSED");
 			obj.setEnteredby(rs.getString("ENTEREDBY")); //rs.getString("ENTEREDBY");
-			obj.setInserttime(rs.getDate("INSERTTIME")); //rs.getNone("INSERTTIME");
+			obj.setInserttime(readTimestamp(rs, "INSERTTIME")); //rs.getNone("INSERTTIME");
             return obj;
         }
     

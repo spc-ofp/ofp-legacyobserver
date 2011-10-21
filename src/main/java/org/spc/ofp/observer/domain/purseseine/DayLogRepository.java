@@ -103,7 +103,7 @@ public class DayLogRepository extends Repository<DayLog> implements IDayLogRepos
 		"    NB_LARG_BE, " + 
 		"    PERC_LARG3, " + 
 		"    NB_LARG_YB, " + 
-		"    INSERTTIME, " + 
+		"    datetime(INSERTTIME) as INSERTTIME, " + 
 		"    ENTEREDBY " + 
 		"FROM " +
 		"    S_ALOG ";
@@ -208,7 +208,7 @@ public class DayLogRepository extends Repository<DayLog> implements IDayLogRepos
 			obj.setNb_larg_be(readInteger(rs, "NB_LARG_BE")); //readInteger(rs, "NB_LARG_BE");
 			obj.setPerc_larg3(readInteger(rs, "PERC_LARG3")); //readInteger(rs, "PERC_LARG3");
 			obj.setNb_larg_yb(readInteger(rs, "NB_LARG_YB")); //readInteger(rs, "NB_LARG_YB");
-			obj.setInserttime(rs.getDate("INSERTTIME")); //rs.getNone("INSERTTIME");
+			obj.setInserttime(readTimestamp(rs,"INSERTTIME")); //rs.getNone("INSERTTIME");
 			obj.setEnteredby(rs.getString("ENTEREDBY"));//rs.getString("ENTEREDBY");
             return obj;
         }
