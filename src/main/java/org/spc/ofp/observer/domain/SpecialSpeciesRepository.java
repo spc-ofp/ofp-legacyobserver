@@ -47,34 +47,34 @@ public class SpecialSpeciesRepository extends Repository<SpecialSpecies>
 		"    SP_ID, "+
 		"    SP_DESC, "+
 		"    LD_COND_ID, "+
-		"    LD_COND_DE, "+
-		"    LD_HANDLIN, "+
+		"    LD_COND_DESC, "+
+		"    LD_HANDLING, "+
 		"    LD_LEN, "+
-		"    LD_LEN_COD, "+
+		"    LD_LEN_CODE, "+
 		"    LD_SEX, "+
-		"    DSC_COND_I, "+
-		"    DSC_COND_D, "+
+		"    DSC_COND_ID, "+
+		"    DSC_COND_DESC, "+
 		"    VESS_ACT, "+
-		"    VESS_ACT_O, "+
-		"    INT_COND_I, "+
-		"    INT_COND_D, "+
-		"    INTE_COND2, "+
-		"    INT_DESCRI, "+
+		"    VESS_ACT_OTH, "+
+		"    INT_COND_ID, "+
+		"    INT_COND_DESC, "+
+		"    INTE_COND_ID, "+
+		"    INT_DESCRIBE, "+
 		"    SGT_ACT, "+
-		"    SGT_ACT_OT, "+
+		"    SGT_ACT_OTH, "+
 		"    SGT_NB, "+
 		"    SGT_NB_AD, "+
 		"    SGT_NB_JU, "+
 		"    SGT_LEN, "+
 		"    SGT_DIST, "+
-		"    SGT_DIS_UN, "+
+		"    SGT_DIS_UNIT, "+
 		"    SGT_BEHAV, "+
 		"    TAG_RET_NO, "+
-		"    TAG_RET_TY, "+
-		"    TAG_RET_OR, "+
+		"    TAG_RET_TYPE, "+
+		"    TAG_RET_ORG, "+
 		"    TAG_PLA_NO, "+
-		"    TAG_PLA_TY, "+
-		"    TAG_PLA_OR "+
+		"    TAG_PLA_TYPE, "+
+		"    TAG_PLA_ORG "+
 		"FROM "+
 		"    SPECIAL_SPECIES";
 	
@@ -115,34 +115,34 @@ public class SpecialSpeciesRepository extends Repository<SpecialSpecies>
 			ss.setSp_id(rs.getString("SP_ID"));
 			ss.setSp_desc(rs.getString("SP_DESC"));
 			ss.setLd_cond_id(rs.getString("LD_COND_ID"));
-			ss.setLd_cond_de(rs.getString("LD_COND_DE"));
-			ss.setLd_handlin(rs.getString("LD_HANDLIN"));
+			ss.setLd_cond_de(rs.getString("LD_COND_DESC"));
+			ss.setLd_handlin(rs.getString("LD_HANDLING"));
 			ss.setLd_len(readDouble(rs, "LD_LEN"));
-			ss.setLd_len_cod(rs.getString("LD_LEN_COD"));
+			ss.setLd_len_cod(rs.getString("LD_LEN_CODE"));
 			ss.setLd_sex(rs.getString("LD_SEX"));
-			ss.setDsc_cond_i(rs.getString("DSC_COND_I"));
-			ss.setDsc_cond_d(rs.getString("DSC_COND_D"));
+			ss.setDsc_cond_i(rs.getString("DSC_COND_ID"));
+			ss.setDsc_cond_d(rs.getString("DSC_COND_DESC"));
 			ss.setVess_act(readInteger(rs, "VESS_ACT"));
-			ss.setVess_act_o(rs.getString("VESS_ACT_O"));
-			ss.setInt_cond_i(rs.getString("INT_COND_I"));
-			ss.setInt_cond_d(rs.getString("INT_COND_D"));
-			ss.setInte_cond2(rs.getString("INTE_COND2"));
-			ss.setInt_descrip(rs.getString("INT_DESCRI"));
+			ss.setVess_act_o(rs.getString("VESS_ACT_OTH"));
+			ss.setInt_cond_i(rs.getString("INT_COND_ID"));
+			ss.setInt_cond_d(rs.getString("INT_COND_DESC"));
+			ss.setInte_cond2(rs.getString("INTE_COND_ID"));
+			ss.setInt_descrip(rs.getString("INT_DESCRIBE"));
 			ss.setSgt_act(readInteger(rs, "SGT_ACT"));
-			ss.setSgt_act_ot(rs.getString("SGT_ACT_OT"));
+			ss.setSgt_act_ot(rs.getString("SGT_ACT_OTH"));
 			ss.setSgt_nb(readInteger(rs, "SGT_NB"));
 			ss.setSgt_nb_ad(readInteger(rs, "SGT_NB_AD"));
 			ss.setSgt_nb_ju(readInteger(rs, "SGT_NB_JU"));
 			ss.setSgt_len(rs.getString("SGT_LEN"));
 			ss.setSgt_dist(readDouble(rs, "SGT_DIST"));
-			ss.setSgt_dis_un(rs.getString("SGT_DIS_UN"));
+			ss.setSgt_dis_un(rs.getString("SGT_DIS_UNIT"));
 			ss.setSgt_behav(rs.getString("SGT_BEHAV"));
 			ss.setTag_ret_no(rs.getString("TAG_RET_NO"));
-			ss.setTag_ret_ty(rs.getString("TAG_RET_TY"));
-			ss.setTag_ret_or(rs.getString("TAG_RET_OR"));
+			ss.setTag_ret_ty(rs.getString("TAG_RET_TYPE"));
+			ss.setTag_ret_or(rs.getString("TAG_RET_ORG"));
 			ss.setTag_pla_no(rs.getString("TAG_PLA_NO"));
-			ss.setTag_pla_ty(rs.getString("TAG_PLA_TY"));
-			ss.setTag_pla_or(rs.getString("TAG_PLA_OR"));
+			ss.setTag_pla_ty(rs.getString("TAG_PLA_TYPE"));
+			ss.setTag_pla_or(rs.getString("TAG_PLA_ORG"));
 			return ss;
 		}		
 	}

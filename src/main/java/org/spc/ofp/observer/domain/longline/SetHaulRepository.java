@@ -61,14 +61,14 @@ public class SetHaulRepository extends Repository<SetHaul> implements ISetHaulRe
 		    "    \"FLOAT\" as FLOATX, " +
 		    "    VSPEED, " +
 		    "    LSPEED, " +
-		    "    LINESP_UNI, " +
+		    "    LINESP_UNIT, " +
 		    "    TBRANCH, " +
 		    "    SETDETAILS, " +
-		    "    BAIT1_SP_I, " +
-		    "    BAIT2_SP_I, " +
-		    "    BAIT3_SP_I, " +
-		    "    BAIT4_SP_I, " +
-		    "    BAIT5_SP_I, " +
+		    "    BAIT1_SP_ID, " +
+		    "    BAIT2_SP_ID, " +
+		    "    BAIT3_SP_ID, " +
+		    "    BAIT4_SP_ID, " +
+		    "    BAIT5_SP_ID, " +
 		    "    BAIT1_W, " +
 		    "    BAIT2_W, " +
 		    "    BAIT3_W, " +
@@ -78,15 +78,15 @@ public class SetHaulRepository extends Repository<SetHaul> implements ISetHaulRe
 		    "    BAIT2_H, " +
 		    "    BAIT3_H, " +
 		    "    BAIT4_H, " +
-		    "    LIGHTSTICK, " +
+		    "    LIGHTSTICKS, " +
 		    "    EVENT, " +
-		    "    MEASUREINS, " +
-		    "    OBSV_DIREC, " +
+		    "    MEASUREINST, " +
+		    "    OBSV_DIRECT, " +
 		    "    FLOATHOOK, " +
 		    "    STRATEGY, " +
-		    "    NBSHARK_LI, " +
-		    "    TARGET_SP_, " +
-		    "    TDR_DEPLOY, " +
+		    "    NBSHARK_LINES, " +
+		    "    TARGET_SP_ID, " +
+		    "    TDR_DEPLOYED, " +
 		    "    TDR_LEN, " +
 		    "    ENTEREDBY, " +
 		    "    INSERTTIME " + // FIXME How do we get DateTime out of here?
@@ -143,11 +143,11 @@ public class SetHaulRepository extends Repository<SetHaul> implements ISetHaulRe
 			sh.setLinespeedUnit(""); // FIXME Mt if 1, Kt if 2 or null
 			sh.setTbranch(readInteger(rs, "TBRANCH"));
 			sh.setSetDetails(rs.getString("SETDETAILS"));
-			sh.setBait1_sp_id(rs.getString("BAIT1_SP_I"));
-			sh.setBait2_sp_id(rs.getString("BAIT2_SP_I"));
-			sh.setBait3_sp_id(rs.getString("BAIT3_SP_I"));
-			sh.setBait4_sp_id(rs.getString("BAIT4_SP_I"));
-			sh.setBait5_sp_id(rs.getString("BAIT5_SP_I"));
+			sh.setBait1_sp_id(rs.getString("BAIT1_SP_ID"));
+			sh.setBait2_sp_id(rs.getString("BAIT2_SP_ID"));
+			sh.setBait3_sp_id(rs.getString("BAIT3_SP_ID"));
+			sh.setBait4_sp_id(rs.getString("BAIT4_SP_ID"));
+			sh.setBait5_sp_id(rs.getString("BAIT5_SP_ID"));
 			sh.setBait1_w(readInteger(rs, "BAIT1_W"));
 			sh.setBait2_w(readInteger(rs, "BAIT2_W"));
 			sh.setBait3_w(readInteger(rs, "BAIT3_W"));
@@ -157,15 +157,15 @@ public class SetHaulRepository extends Repository<SetHaul> implements ISetHaulRe
 			sh.setBait2_h(rs.getString("BAIT2_H"));
 			sh.setBait3_h(rs.getString("BAIT3_H"));
 			sh.setBait4_h(rs.getString("BAIT4_H"));
-			sh.setLightsticks(readInteger(rs, "LIGHTSTICK"));
+			sh.setLightsticks(readInteger(rs, "LIGHTSTICKS"));
 			sh.setEvent(rs.getBoolean("EVENT"));
-			sh.setMeasureinst(rs.getString("MEASUREINS"));
-			sh.setObsv_direct(rs.getBoolean("OBSV_DIREC"));
+			sh.setMeasureinst(rs.getString("MEASUREINST"));
+			sh.setObsv_direct(rs.getBoolean("OBSV_DIRECT"));
 			sh.setFloathook(readInteger(rs, "FLOATHOOK"));
 			sh.setStrategy(rs.getString("STRATEGY"));
-			sh.setNbshark_lines(readInteger(rs, "NBSHARK_LI"));
-			sh.setTarget_sp_id(readInteger(rs, "TARGET_SP_"));
-			sh.setTdr_deployed(rs.getBoolean("TDR_DEPLOY"));
+			sh.setNbshark_lines(readInteger(rs, "NBSHARK_LINES"));
+			sh.setTarget_sp_id(readInteger(rs, "TARGET_SP_ID"));
+			sh.setTdr_deployed(rs.getBoolean("TDR_DEPLOYED"));
 			sh.setTdr_len(readInteger(rs, "TDR_LEN"));
 			sh.setEnteredby(rs.getString("ENTEREDBY"));
 			sh.setInsertTime(rs.getDate("INSERTTIME"));

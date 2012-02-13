@@ -55,7 +55,7 @@ public class LengthFrequencyHeaderRepository extends Repository<LengthFrequencyH
 		"    MEASURE, " + 
 		"    PROTOCOL, " + 
 		"    SUM_BRAILS, " + 
-		"    PROT_COMME, " + 
+		"    PROT_COMMENTS, " + 
 		"    OTHERSAMP, " + 
 		"    SAMPTYPE, " + 
 		"    WHICHBRAIL, " + 
@@ -114,7 +114,7 @@ public class LengthFrequencyHeaderRepository extends Repository<LengthFrequencyH
 			obj.setMeasure(rs.getString("MEASURE")); //rs.getString("MEASURE");
 			obj.setProtocol(rs.getString("PROTOCOL")); //rs.getString("PROTOCOL");
 			obj.setSum_brails(readDouble(rs, "SUM_BRAILS")); //readDouble(rs, "SUM_BRAILS");
-			obj.setProt_comme(rs.getString("PROT_COMME")); //rs.getString("PROT_COMME");
+			obj.setProt_comme(rs.getString("PROT_COMMENTS")); //rs.getString("PROT_COMME");
 			obj.setOthersamp(rs.getString("OTHERSAMP")); //rs.getString("OTHERSAMP");
 			obj.setSamptype(readInteger(rs, "SAMPTYPE")); //readInteger(rs, "SAMPTYPE");
 			obj.setWhichbrail(readInteger(rs, "WHICHBRAIL")); //readInteger(rs, "WHICHBRAIL");

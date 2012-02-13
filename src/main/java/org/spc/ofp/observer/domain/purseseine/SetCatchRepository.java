@@ -42,10 +42,10 @@ public class SetCatchRepository extends Repository<SetCatch> implements ISetCatc
 		"    FATE_ID, " + 
 		"    COND_ID, " + 
 		"    YESNO, " + 
-		"    PERC_TOTCA, " + 
+		"    PERC_TOTCATCH, " + 
 		"    SP_C, " + 
 		"    SP_C_VES, " + 
-		"    SP_C_SPCOM, " + 
+		"    SP_C_SPCOMP, " + 
 		"    SP_N, " + 
 		"    SP_W_L, " + 
 		"    SP_W_H, " + 
@@ -93,10 +93,10 @@ public class SetCatchRepository extends Repository<SetCatch> implements ISetCatc
 			obj.setFate_id(rs.getString("FATE_ID")); //rs.getString("FATE_ID");
 			obj.setCond_id(rs.getString("COND_ID")); //rs.getString("COND_ID");
 			obj.setYesno(rs.getBoolean("YESNO")); //rs.getBoolean("YESNO");
-			obj.setPerc_totca(readDouble(rs, "PERC_TOTCA")); //readDouble(rs, "PERC_TOTCA");
+			obj.setPerc_totca(readDouble(rs, "PERC_TOTCATCH")); //readDouble(rs, "PERC_TOTCA");
 			obj.setSp_c(readDouble(rs, "SP_C")); //readDouble(rs, "SP_C");
 			obj.setSp_c_ves(readDouble(rs, "SP_C_VES")); //readDouble(rs, "SP_C_VES");
-			obj.setSp_c_spcom(readDouble(rs, "SP_C_SPCOM")); //readDouble(rs, "SP_C_SPCOM");
+			obj.setSp_c_spcom(readDouble(rs, "SP_C_SPCOMP")); //readDouble(rs, "SP_C_SPCOM");
 			obj.setSp_n(readInteger(rs, "SP_N")); //readInteger(rs, "SP_N");
 			obj.setSp_w_l(readDouble(rs, "SP_W_L")); //readDouble(rs, "SP_W_L");
 			obj.setSp_w_h(readDouble(rs, "SP_W_H")); //readDouble(rs, "SP_W_H");

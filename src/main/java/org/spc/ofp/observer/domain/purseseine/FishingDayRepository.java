@@ -70,6 +70,30 @@ public class FishingDayRepository extends Repository<FishingDay> implements IFis
         return fill(find(query, new FishingDayMapper(), id));
     }
     
+    /*
+    @Override
+    public List<FishingDay> findByTripId(final long tripId) {
+    	final String query = SELECT_QUERY + " WHERE OBSTRIP_ID = ? ";
+    	
+    	final List<FishingDay> days = list(query, new FishingDayMapper(), tripId);
+    	// One big query for everything by trip
+    	final List<DayLog> activities = daylogRepo.findByTripId(tripId);
+    	final Iterator<DayLog> activityIterator = activities.iterator();
+    	for (final FishingDay day : days) {
+    		final long dayId = day.getId();
+    		while (activityIterator.hasNext()) {
+    			final DayLog activity = activityIterator.next();
+    			if (dayId == activity.getDayId()) {
+    				day.addActivity(activity);
+    				activityIterator.remove();
+    			}
+    		}
+    	}
+
+    	return days;
+    }
+    */
+    
     @Override
 	public List<FishingDay> findByTripId(final long tripId) {
     	final String query = SELECT_QUERY + " WHERE OBSTRIP_ID = ? ";

@@ -44,12 +44,12 @@ public class Gen6Header {
 	private Integer act_id;
 	private String vesselname;
 	private String ircs;
-	private Integer vesseltype;
+	private Integer vesseltype_id;
 	private Integer bearing;
 	private Double distance;
 	private Boolean stickers;
 	private Boolean marpol;
-	private Boolean infringeme;
+	private Boolean infringements;
 	private Boolean photos;
 	private String comments;
 	
@@ -145,11 +145,11 @@ public class Gen6Header {
 	public void setIrcs(String ircs) {
 		this.ircs = ircs;
 	}
-	public Integer getVesseltype() {
-		return vesseltype;
+	public Integer getVesseltypeId() {
+		return vesseltype_id;
 	}
-	public void setVesseltype(Integer vesseltype) {
-		this.vesseltype = vesseltype;
+	public void setVesseltypeId(Integer vesseltype) {
+		this.vesseltype_id = vesseltype;
 	}
 	public Integer getBearing() {
 		return bearing;
@@ -175,11 +175,11 @@ public class Gen6Header {
 	public void setMarpol(Boolean marpol) {
 		this.marpol = marpol;
 	}
-	public Boolean getInfringeme() {
-		return infringeme;
+	public Boolean getInfringements() {
+		return infringements;
 	}
-	public void setInfringeme(Boolean infringeme) {
-		this.infringeme = infringeme;
+	public void setInfringements(Boolean infringeme) {
+		this.infringements = infringeme;
 	}
 	public Boolean getPhotos() {
 		return photos;

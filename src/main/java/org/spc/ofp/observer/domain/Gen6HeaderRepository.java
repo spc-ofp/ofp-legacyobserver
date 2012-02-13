@@ -53,12 +53,12 @@ public class Gen6HeaderRepository extends Repository<Gen6Header> implements IGen
 		"    ACT_ID, " + 
 		"    VESSELNAME, " + 
 		"    IRCS, " + 
-		"    VESSELTYPE, " + 
+		"    VESSELTYPE_ID, " + 
 		"    BEARING, " + 
 		"    DISTANCE, " + 
 		"    STICKERS, " + 
 		"    MARPOL, " + 
-		"    INFRINGEME, " + 
+		"    INFRINGEMENTS, " + 
 		"    PHOTOS, " + 
 		"    COMMENTS " + 
 		"FROM " +
@@ -109,12 +109,12 @@ public class Gen6HeaderRepository extends Repository<Gen6Header> implements IGen
 			obj.setAct_id(readInteger(rs, "ACT_ID")); //readInteger(rs, "ACT_ID");
 			obj.setVesselname(rs.getString("VESSELNAME")); //rs.getString("VESSELNAME");
 			obj.setIrcs(rs.getString("IRCS")); //rs.getString("IRCS");
-			obj.setVesseltype(readInteger(rs, "VESSELTYPE")); //readInteger(rs, "VESSELTYPE");
+			obj.setVesseltypeId(readInteger(rs, "VESSELTYPE_ID")); //readInteger(rs, "VESSELTYPE");
 			obj.setBearing(readInteger(rs, "BEARING")); //readInteger(rs, "BEARING");
 			obj.setDistance(readDouble(rs, "DISTANCE")); //readDouble(rs, "DISTANCE");
 			obj.setStickers(rs.getBoolean("STICKERS")); //rs.getBoolean("STICKERS");
 			obj.setMarpol(rs.getBoolean("MARPOL")); //rs.getBoolean("MARPOL");
-			obj.setInfringeme(rs.getBoolean("INFRINGEME")); //rs.getBoolean("INFRINGEME");
+			obj.setInfringements(rs.getBoolean("INFRINGEMENTS")); //rs.getBoolean("INFRINGEME");
 			obj.setPhotos(rs.getBoolean("PHOTOS")); //rs.getBoolean("PHOTOS");
 			obj.setComments(rs.getString("COMMENTS")); //rs.getString("COMMENTS");
             return obj;

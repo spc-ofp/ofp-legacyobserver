@@ -27,7 +27,7 @@ public class Gen6Detail {
 	private long id;
 	private long headerId;	
 	private Integer poll_type;
-	private String material_i;
+	private String material_id;
 	private Integer yn;
 	private String type;
 	private String quantity;
@@ -50,11 +50,11 @@ public class Gen6Detail {
 	public void setPoll_type(Integer poll_type) {
 		this.poll_type = poll_type;
 	}
-	public String getMaterial_i() {
-		return material_i;
+	public String getMaterial_id() {
+		return material_id;
 	}
-	public void setMaterial_i(String material_i) {
-		this.material_i = material_i;
+	public void setMaterial_id(String material_i) {
+		this.material_id = material_i;
 	}
 	public Integer getYn() {
 		return yn;

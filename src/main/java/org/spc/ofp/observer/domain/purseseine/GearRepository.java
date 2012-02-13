@@ -41,16 +41,16 @@ public class GearRepository extends Repository<Gear> implements IGearRepository 
 		"    PW_MODEL, " + 
 		"    PW_POWER, " + 
 		"    PW_SPEED, " + 
-		"    NET_DEPTH_, " + 
-		"    NET_DEPTH2, " + 
-		"    NET_LENGTH, " + 
-		"    NET_LENGT2, " + 
+		"    NET_DEPTH_M, " + 
+		"    NET_DEPTH_UNIT, " + 
+		"    NET_LENGTH_M, " + 
+		"    NET_LENGTH_UNIT, " + 
 		"    NET_STRIPS, " + 
 		"    MESH_MAIN, " + 
-		"    MESH_MAIN_, " + 
+		"    MESH_MAIN_UNIT, " + 
 		"    NET_HANG, " + 
 		"    BRAIL_SIZE, " + 
-		"    BRAIL_SIZ2, " + 
+		"    BRAIL_SIZE2, " + 
 		"    BRAIL_TYPE " + 
 		"FROM " +
 		"    S_GEAR ";
@@ -73,16 +73,16 @@ public class GearRepository extends Repository<Gear> implements IGearRepository 
 			obj.setPw_model(rs.getString("PW_MODEL")); //rs.getString("PW_MODEL");
 			obj.setPw_power(readInteger(rs, "PW_POWER")); //readInteger(rs, "PW_POWER");
 			obj.setPw_speed(readInteger(rs, "PW_SPEED")); //readInteger(rs, "PW_SPEED");
-			obj.setNet_depth_(readInteger(rs, "NET_DEPTH_")); //readInteger(rs, "NET_DEPTH_");
-			obj.setNet_depth2(rs.getString("NET_DEPTH2")); //rs.getString("NET_DEPTH2");
-			obj.setNet_length(readInteger(rs, "NET_LENGTH")); //readInteger(rs, "NET_LENGTH");
-			obj.setNet_lengt2(rs.getString("NET_LENGT2")); //rs.getString("NET_LENGT2");
+			obj.setNet_depth_(readInteger(rs, "NET_DEPTH_M")); //readInteger(rs, "NET_DEPTH_");
+			obj.setNet_depth2(rs.getString("NET_DEPTH_UNIT")); //rs.getString("NET_DEPTH2");
+			obj.setNet_length(readInteger(rs, "NET_LENGTH_M")); //readInteger(rs, "NET_LENGTH");
+			obj.setNet_lengt2(rs.getString("NET_LENGTH_UNIT")); //rs.getString("NET_LENGT2");
 			obj.setNet_strips(readInteger(rs, "NET_STRIPS")); //readInteger(rs, "NET_STRIPS");
 			obj.setMesh_main(readInteger(rs, "MESH_MAIN")); //readInteger(rs, "MESH_MAIN");
-			obj.setMesh_main_(rs.getString("MESH_MAIN_")); //rs.getString("MESH_MAIN_");
+			obj.setMesh_main_(rs.getString("MESH_MAIN_UNIT")); //rs.getString("MESH_MAIN_");
 			obj.setNet_hang(readInteger(rs, "NET_HANG")); //readInteger(rs, "NET_HANG");
 			obj.setBrail_size(readDouble(rs, "BRAIL_SIZE")); //readDouble(rs, "BRAIL_SIZE");
-			obj.setBrail_siz2(readDouble(rs, "BRAIL_SIZ2")); //readDouble(rs, "BRAIL_SIZ2");
+			obj.setBrail_siz2(readDouble(rs, "BRAIL_SIZE2")); //readDouble(rs, "BRAIL_SIZ2");
 			obj.setBrail_type(rs.getString("BRAIL_TYPE")); //rs.getString("BRAIL_TYPE");
             return obj;
         }

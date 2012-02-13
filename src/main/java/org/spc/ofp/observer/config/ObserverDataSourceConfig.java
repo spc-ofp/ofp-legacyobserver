@@ -22,7 +22,9 @@ import javax.sql.DataSource;
 
 import org.apache.commons.dbcp.BasicDataSource;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.*;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 /**
  * @author Corey Cole <coreyc@spc.int>
@@ -43,7 +45,6 @@ public class ObserverDataSourceConfig {
 		final BasicDataSource bds = new BasicDataSource();
 		bds.setDriverClassName(DRIVER_CLASS);
 		bds.setUrl(OBSERVER_URL);
-		//bds.setConnectionProperties(DEFAULT_PROPS);
 		return bds;
 	}
 }

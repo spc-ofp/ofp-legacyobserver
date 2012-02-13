@@ -37,7 +37,7 @@ public class Gen6DetailRepository extends Repository<Gen6Detail> implements IGen
 		"    POLL_H_ID, " + 
 		"    POLL_D_ID, " + 
 		"    POLL_TYPE, " + 
-		"    MATERIAL_I, " + 
+		"    MATERIAL_ID, " + 
 		"    YN, " + 
 		"    TYPE, " + 
 		"    QUANTITY " + 
@@ -64,7 +64,7 @@ public class Gen6DetailRepository extends Repository<Gen6Detail> implements IGen
             obj.setId(rs.getLong("POLL_D_ID"));
             obj.setHeaderId(rs.getLong("POLL_H_ID"));
 			obj.setPoll_type(readInteger(rs, "POLL_TYPE")); //readInteger(rs, "POLL_TYPE");
-			obj.setMaterial_i(rs.getString("MATERIAL_I")); //rs.getString("MATERIAL_I");
+			obj.setMaterial_id(rs.getString("MATERIAL_ID")); //rs.getString("MATERIAL_I");
 			obj.setYn(readInteger(rs, "YN")); //readInteger(rs, "YN");
 			obj.setType(rs.getString("TYPE")); //rs.getString("TYPE");
 			obj.setQuantity(rs.getString("QUANTITY")); //rs.getString("QUANTITY");

@@ -39,18 +39,18 @@ public class VesselAttributeRepository extends Repository<VesselAttribute> imple
 		"    OWNER, " + 
 		"    N_SPEED, " + 
 		"    N_TOW, " + 
-		"    TENDERBOAT, " + 
+		"    TENDERBOATS, " + 
 		"    N_LIGHT, " + 
 		"    SKIFF_HP, " + 
 		"    SKIFF_MAKE, " + 
 		"    V_SPEED, " + 
 		"    HELI_MAKE, " + 
 		"    HELI_MODEL, " + 
-		"    HELI_REG_N, " + 
+		"    HELI_REG_NO, " + 
 		"    HELI_RANGE, " + 
-		"    HELI_RANG2, " + 
+		"    HELI_RANGE_UNT, " + 
 		"    HELI_COLR, " + 
-		"    HELI_NBVES " + 
+		"    HELI_NBVESS " + 
 		"FROM " +
 		"    S_VESS_ATTR ";
         
@@ -70,18 +70,18 @@ public class VesselAttributeRepository extends Repository<VesselAttribute> imple
 			obj.setOwner(rs.getString("OWNER")); //rs.getString("OWNER");
 			obj.setN_speed(readInteger(rs, "N_SPEED")); //readInteger(rs, "N_SPEED");
 			obj.setN_tow(readInteger(rs, "N_TOW")); //readInteger(rs, "N_TOW");
-			obj.setTenderboat(rs.getBoolean("TENDERBOAT")); //rs.getBoolean("TENDERBOAT");
+			obj.setTenderboat(rs.getBoolean("TENDERBOATS")); //rs.getBoolean("TENDERBOAT");
 			obj.setN_light(readInteger(rs, "N_LIGHT")); //readInteger(rs, "N_LIGHT");
 			obj.setSkiff_hp(readInteger(rs, "SKIFF_HP")); //readInteger(rs, "SKIFF_HP");
 			obj.setSkiff_make(rs.getString("SKIFF_MAKE")); //rs.getString("SKIFF_MAKE");
 			obj.setV_speed(readDouble(rs, "V_SPEED")); //readDouble(rs, "V_SPEED");
 			obj.setHeli_make(rs.getString("HELI_MAKE")); //rs.getString("HELI_MAKE");
 			obj.setHeli_model(rs.getString("HELI_MODEL")); //rs.getString("HELI_MODEL");
-			obj.setHeli_reg_n(rs.getString("HELI_REG_N")); //rs.getString("HELI_REG_N");
+			obj.setHeli_reg_n(rs.getString("HELI_REG_NO")); //rs.getString("HELI_REG_N");
 			obj.setHeli_range(readInteger(rs, "HELI_RANGE")); //readInteger(rs, "HELI_RANGE");
-			obj.setHeli_rang2(rs.getString("HELI_RANG2")); //rs.getString("HELI_RANG2");
+			obj.setHeli_rang2(rs.getString("HELI_RANGE_UNT")); //rs.getString("HELI_RANG2");
 			obj.setHeli_colr(rs.getString("HELI_COLR")); //rs.getString("HELI_COLR");
-			obj.setHeli_nbves(readInteger(rs, "HELI_NBVES")); //readInteger(rs, "HELI_NBVES");
+			obj.setHeli_nbves(readInteger(rs, "HELI_NBVESS")); //readInteger(rs, "HELI_NBVES");
             return obj;
         }
     

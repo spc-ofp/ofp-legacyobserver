@@ -82,8 +82,8 @@ public class DayLogRepository extends Repository<DayLog> implements IDayLogRepos
 		"    trim(STOP) as STOP, " + 
 		"    B_DISCARDS, " + 
 		"    B_ESCAPE, " + 
-		"    B_ESCPERCE, " + 
-		"    B_NBSPECIE, " + 
+		"    b_escpercent, " + 
+		"    B_NBSPECIES, " + 
 		"    B_SCHOOL, " + 
 		"    B_NBTAGS, " + 
 		"    B_TAGNO, " + 
@@ -91,17 +91,17 @@ public class DayLogRepository extends Repository<DayLog> implements IDayLogRepos
 		"    B_LEN, " + 
 		"    B_WEIGHT, " + 
 		"    B_SEX, " + 
-		"    trim(PS3_COMMEN) as PS3_COMMEN," + 
+		"    trim(PS3_COMMENT) as PS3_COMMENT," + 
 		"    SET_ID, " + 
 		"    SET_ID_LEV, " + 
 		"    PERC_SKJ, " + 
 		"    PERC_YFT, " + 
 		"    PERC_BET, " + 
-		"    PERC_LARG_, " + 
-		"    NB_LARG_YF, " + 
-		"    PERC_LARG2, " + 
-		"    NB_LARG_BE, " + 
-		"    PERC_LARG3, " + 
+		"    PERC_LARG_YFT, " + 
+		"    NB_LARG_YFT, " + 
+		"    PERC_LARG_BET, " + 
+		"    NB_LARG_BET, " + 
+		"    PERC_LARG_YB, " + 
 		"    NB_LARG_YB, " + 
 		"    datetime(INSERTTIME) as INSERTTIME, " + 
 		"    ENTEREDBY " + 
@@ -134,7 +134,7 @@ public class DayLogRepository extends Repository<DayLog> implements IDayLogRepos
 
 	@Override
 	public List<DayLog> findByTripId(final long tripId) {
-		final String query = SELECT_QUERY + " WHERE OBSTRIP_ID = ? ";
+		final String query = SELECT_QUERY + " WHERE OBSTRIP_ID = ? ORDER BY S_DAY_ID ASC";
 		return fillAll(list(query, new DayLogMapper(), tripId));
 	}
 
@@ -187,8 +187,8 @@ public class DayLogRepository extends Repository<DayLog> implements IDayLogRepos
 			obj.setStop(rs.getString("STOP")); //rs.getString("STOP");
 			obj.setB_discards(rs.getBoolean("B_DISCARDS")); //rs.getBoolean("B_DISCARDS");
 			obj.setB_escape(rs.getBoolean("B_ESCAPE")); //rs.getBoolean("B_ESCAPE");
-			obj.setB_escperce(readInteger(rs, "B_ESCPERCE")); //readInteger(rs, "B_ESCPERCE");
-			obj.setB_nbspecie(readInteger(rs, "B_NBSPECIE")); //readInteger(rs, "B_NBSPECIE");
+			obj.setB_escperce(readInteger(rs, "B_ESCPERCENT")); //readInteger(rs, "B_ESCPERCE");
+			obj.setB_nbspecie(readInteger(rs, "B_NBSPECIES")); //readInteger(rs, "B_NBSPECIE");
 			obj.setB_school(readInteger(rs, "B_SCHOOL")); //readInteger(rs, "B_SCHOOL");
 			obj.setB_nbtags(readInteger(rs, "B_NBTAGS")); //readInteger(rs, "B_NBTAGS");
 			obj.setB_tagno(rs.getString("B_TAGNO")); //rs.getString("B_TAGNO");
@@ -196,17 +196,17 @@ public class DayLogRepository extends Repository<DayLog> implements IDayLogRepos
 			obj.setB_len(readInteger(rs, "B_LEN")); //readInteger(rs, "B_LEN");
 			obj.setB_weight(readDouble(rs, "B_WEIGHT")); //readDouble(rs, "B_WEIGHT");
 			obj.setB_sex(rs.getString("B_SEX")); //rs.getString("B_SEX");
-			obj.setPs3_commen(rs.getString("PS3_COMMEN")); //rs.getString("PS3_COMMEN");
+			obj.setPs3_commen(rs.getString("PS3_COMMENT")); //rs.getString("PS3_COMMEN");
 			obj.setSet_id(readInteger(rs, "SET_ID")); //readInteger(rs, "SET_ID");
 			obj.setSet_id_lev(readInteger(rs, "SET_ID_LEV")); //readInteger(rs, "SET_ID_LEV");
 			obj.setPerc_skj(readInteger(rs, "PERC_SKJ")); //readInteger(rs, "PERC_SKJ");
 			obj.setPerc_yft(readInteger(rs, "PERC_YFT")); //readInteger(rs, "PERC_YFT");
 			obj.setPerc_bet(readInteger(rs, "PERC_BET")); //readInteger(rs, "PERC_BET");
-			obj.setPerc_larg_(readInteger(rs, "PERC_LARG_")); //readInteger(rs, "PERC_LARG_");
-			obj.setNb_larg_yf(readInteger(rs, "NB_LARG_YF")); //readInteger(rs, "NB_LARG_YF");
-			obj.setPerc_larg2(readInteger(rs, "PERC_LARG2")); //readInteger(rs, "PERC_LARG2");
-			obj.setNb_larg_be(readInteger(rs, "NB_LARG_BE")); //readInteger(rs, "NB_LARG_BE");
-			obj.setPerc_larg3(readInteger(rs, "PERC_LARG3")); //readInteger(rs, "PERC_LARG3");
+			obj.setPerc_larg_(readInteger(rs, "PERC_LARG_YFT")); //readInteger(rs, "PERC_LARG_");
+			obj.setNb_larg_yf(readInteger(rs, "NB_LARG_YFT")); //readInteger(rs, "NB_LARG_YF");
+			obj.setPerc_larg2(readInteger(rs, "PERC_LARG_BET")); //readInteger(rs, "PERC_LARG2");
+			obj.setNb_larg_be(readInteger(rs, "NB_LARG_BET")); //readInteger(rs, "NB_LARG_BE");
+			obj.setPerc_larg3(readInteger(rs, "PERC_LARG_YB")); //readInteger(rs, "PERC_LARG3");
 			obj.setNb_larg_yb(readInteger(rs, "NB_LARG_YB")); //readInteger(rs, "NB_LARG_YB");
 			obj.setInserttime(readTimestamp(rs,"INSERTTIME")); //rs.getNone("INSERTTIME");
 			obj.setEnteredby(rs.getString("ENTEREDBY"));//rs.getString("ENTEREDBY");
